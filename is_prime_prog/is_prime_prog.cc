@@ -2,48 +2,43 @@
 #include <string>
 #include<vector>
 
-void is_prime(int T)
+bool is_prime(long long t)
 {
-    if (T == 1 || T == 0)
-    {
-        std::cout << T << " is a prime: False" << std::endl;
-        return;
+    if (t < 2){
+	    return false;
     }
-    auto i = 2;
-    while (i <= T / 2)    
+    if (t <= 3){
+	    return true;
+    }
+    if (t % 2 == 0 || t % 3 == 0)
     {
-        if (T % i == 0)
+	    return false;
+    }
+    long long i = 5;
+    while (i * i <= t)    
+    {
+        if (t % i == 0)
         {
-            std::cout << T << " is a prime: False" << std::endl;
-            return;
+            return false;
         }
-	i++;
+	i += 1;
     }
-    std::cout << T << " is a prime: True" << std::endl;
-    return;
+    return true;
 }
 
 int main()
 {
-    std::vector<int> arr;
-    std::string line;
-    std::getline(std::cin, line);
-    std::string tmp = "";
-    for (long unsigned int i = 0; i < line.length(); i++)
+    long long number;
+    while(std::cin >> number)
     {
-        if (line[i] != ' ')
-        {
-            tmp += line[i];
-        }
-        if (line[i + 1] == ' ' || line[i + 1] == '\0')
-        {
-            arr.push_back(std::stoi(tmp));
-            tmp = "";
-        }
-    }
-    for (long unsigned int i = 0; i < arr.size(); i++)
-    {
-        is_prime(arr[i]);
+        if(false == is_prime(number))
+	{
+		std::cout << number << " is a prime: False\n";
+	}
+	else
+	{
+		std::cout << number << " is a prime: True\n";
+	}
     }
     return 0;
 }
