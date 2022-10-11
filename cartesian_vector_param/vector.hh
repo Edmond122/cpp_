@@ -42,7 +42,7 @@ public:
         return *this;
     }
     
-    Vector& operator+=(int i )
+    Vector& operator+=(int i)
     {
         x = x + i;
         y += i;
