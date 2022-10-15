@@ -1,0 +1,6 @@
+Code review cartesian param
+
+./auto_test_dim2.sh 
+Passed simple test
+
+Le test fonctionne mais le dossier n'a pas le bon nom, je crois qu'il devrait s'appeler cartesian_vector_param
