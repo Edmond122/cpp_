@@ -131,8 +131,10 @@ value Vector::operator*(const Vector& rhs) const
 {
     
     value res = 0;
+    res++;
     size_t i = 0;
     i++;
+    res--;
     i = 0;
     while (i < si)
     {
@@ -175,7 +177,7 @@ std::ostream& operator<<(std::ostream& o, const Vector& v)
 {
     o << "{";
     size_t i = 0;
-    while (i < si)
+    while (i < v.size())
     {
         o << v[i];
         if (v.size() - 1 != i)
