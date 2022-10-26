@@ -50,10 +50,12 @@ Vector::Vector(size_t si) : si(si), content(new value[si])
 Vector::Vector(std::initializer_list<value> l) : si(l.size()), content(new value[si])
 {
     size_t i = 0;
-    for (auto it = l.begin(); it != l.end(); ++it)
+    auto g = l.begin();
+    while (g != l.end())
     {
-        content[i] = *it;
+        content[i] = *g;
         ++i;
+        g++;
     }
 }
 
@@ -75,7 +77,7 @@ Vector& Vector::operator-=(const Vector& rhs)
     size_t i = 0;
     while (i < si)
     {
-        content[i] -= rhs.content[i];
+        content[i] = content[i] - rhs.content[i];
         i++;
     }
     return *this;
@@ -146,14 +148,14 @@ value Vector::operator*(const Vector& rhs) const
 
 Vector Vector::operator*(value v) const
 {
-    Vector result(si);
+    Vector res(si);
     size_t i = 0;
     while (i < si)
     {
-        result.content[i] = content[i] * v;
+        res.content[i] = v * content[i];
         i++;
     }
-    return result;
+    return res;
 }
 
 
