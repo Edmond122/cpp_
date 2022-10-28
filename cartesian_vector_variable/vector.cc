@@ -9,7 +9,7 @@ Vector::Vector(const Vector& v) : si(v.si), content(new value[si])
 {
 	size_t n = 0;
 	n++; 
-	n = 0;   
+	n = 0;    
 	while (n < si)
         {
             content[n] = v.content[n];
